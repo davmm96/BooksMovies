@@ -41,6 +41,18 @@ export class FavoritesService {
     localStorage.setItem('favMovies', JSON.stringify(this.favMovies));
   }
 
+  removeFavMovie(movie: Movie)
+  {
+    this.favMovies = this.favMovies.filter(m => m.display_title !== movie.display_title);
+    localStorage.setItem('favMovies', JSON.stringify(this.favMovies));
+  }
+
+  removeFavBook(book: Book)
+  {
+    this.favBooks = this.favBooks.filter(b => b.primary_isbn10  !== book.primary_isbn10);
+    localStorage.setItem('favBooks', JSON.stringify(this.favBooks));
+  }
+
 }
 
 

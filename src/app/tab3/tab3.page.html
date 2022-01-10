@@ -21,10 +21,15 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+
+  <p *ngIf="favoritesService.favBooks.length === 0 && type === 'books'">No favorites yet</p>
+  <p *ngIf="favoritesService.favMovies.length === 0 && type === 'movies'">No favorites yet</p>
   
   <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'"
-    [books] = "favoritesService.favBooks"></app-books>
+    [books] = "favoritesService.favBooks"
+    [isFavorite]="true"></app-books>
 
   <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'"
-      [movies] = "favoritesService.favMovies"></app-movies>
+      [movies] = "favoritesService.favMovies"
+      [isFavorite]="true"></app-movies>
 </ion-content>

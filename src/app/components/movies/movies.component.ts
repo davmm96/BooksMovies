@@ -9,6 +9,8 @@ import { Movie } from 'src/app/interfaces/interfacesMovies';
 export class MoviesComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
+  @Input() isFavorite = false;
+  
   constructor() { }
 
   ngOnInit() {}

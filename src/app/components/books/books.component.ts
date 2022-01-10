@@ -9,6 +9,8 @@ import { Book } from 'src/app/interfaces/interfacesBookAll';
 export class BooksComponent implements OnInit {
 
   @Input() books: Book[] = [];
+  @Input() isFavorite = false;
+  
   constructor() { }
 
   ngOnInit() {}
