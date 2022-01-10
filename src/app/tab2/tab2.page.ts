@@ -1,12 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NytimesapiService } from '../services/nytimesapi.service';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
-  constructor() {}
+  movies = [];
+
+  constructor(private nytimesapiService: NytimesapiService) {
+    
+  }
+
+  ngOnInit() {
+      this.loadFilms();
+  }
+
+  loadFilms( event?){
+    this.nytimesapiService.getFilms()
+    .subscribe((data) => {
+      console.log(data);
+
+      if(data["results"].length === 0)
+      {
+        event.target.disabled = true;
+        event.target.complete();
+        return;
+      }
+      this.movies.push(...data["results"]);
+
+      if(event)
+      {
+        event.target.complete();
+      }
+    });
+  }
+
+  loadData(event)
+  {
+    this.loadFilms(event);
+  }
 
 }
