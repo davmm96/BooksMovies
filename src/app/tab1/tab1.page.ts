@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NytimesapiService } from '../services/nytimesapi.service';
 
+import { ResponseListAll, List } from '../interfaces/interfacesBookAll';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -8,10 +10,10 @@ import { NytimesapiService } from '../services/nytimesapi.service';
 })
 export class Tab1Page {
 
-  lists = [];
+  lists: List[] = [];
   constructor(private nytimesapiService: NytimesapiService) {
     this.nytimesapiService.getBooks()
-    .subscribe((data) => {
+    .subscribe((data: ResponseListAll) => {
       console.log(data);
       this.lists = data["results"].lists;
     });

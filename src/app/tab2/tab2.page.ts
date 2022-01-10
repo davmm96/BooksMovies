@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NytimesapiService } from '../services/nytimesapi.service';
 
+import { ResponseMovies, Movie } from '../interfaces/interfacesMovies';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -8,7 +10,7 @@ import { NytimesapiService } from '../services/nytimesapi.service';
 })
 export class Tab2Page implements OnInit{
 
-  movies = [];
+  movies: Movie[] = [];
 
   constructor(private nytimesapiService: NytimesapiService) {
     
@@ -20,7 +22,7 @@ export class Tab2Page implements OnInit{
 
   loadFilms( event?){
     this.nytimesapiService.getFilms()
-    .subscribe((data) => {
+    .subscribe((data: ResponseMovies) => {
       console.log(data);
 
       if(data["results"].length === 0)

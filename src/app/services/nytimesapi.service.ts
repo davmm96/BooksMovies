@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
+import{ ResponseListAll } from '../interfaces/interfacesBookAll';
+
 const apiKey = environment.apiKey;
 const apiUrl = environment.apiUrl;
 
@@ -16,7 +18,7 @@ export class NytimesapiService {
 
   getBooks()
   {
-    return this.http.get(apiUrl+'svc/books/v3/lists/overview.json?api-key='+apiKey);
+    return this.http.get<ResponseListAll>(apiUrl+'svc/books/v3/lists/overview.json?api-key='+apiKey);
   }
   
   getFilms()
