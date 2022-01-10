@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { FavoritesService } from '../services/favorites.service';
+import { IonSegment } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,20 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  @ViewChild(IonSegment, {static: true}) segment: IonSegment;
+  type = '';
+
+  constructor(public favoritesService: FavoritesService) {}
+
+  ngOnInit()
+  {
+    this.segment.value='books';
+    this.type = 'books';
+  }
+
+  cambioTipo(event)
+  {
+    this.type=event.detail.value;
+  }
 
 }

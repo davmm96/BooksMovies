@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NytimesapiService } from '../services/nytimesapi.service';
+import { IonContent } from '@ionic/angular';
 
 import { ResponseMovies, Movie } from '../interfaces/interfacesMovies';
 
@@ -10,6 +11,7 @@ import { ResponseMovies, Movie } from '../interfaces/interfacesMovies';
 })
 export class Tab2Page implements OnInit{
 
+  @ViewChild(IonContent) content: IonContent;
   movies: Movie[] = [];
 
   constructor(private nytimesapiService: NytimesapiService) {
@@ -45,12 +47,8 @@ export class Tab2Page implements OnInit{
     this.loadFilms(event);
   }
 
-  getContent() {
-    return document.querySelector('ion-content');
-  }
-
   scrollToTop() {
-    this.getContent().scrollToTop(500);
+    this.content.scrollToTop(500);
   }
 
 }

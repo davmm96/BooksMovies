@@ -26,7 +26,8 @@ import { ListComponent } from './list/list.component';
   ],
   exports: [
     MoviesComponent,
-    ListsComponent
+    ListsComponent,
+    BooksComponent
   ]
 })
 export class ComponentsModule { }

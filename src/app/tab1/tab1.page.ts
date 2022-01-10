@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NytimesapiService } from '../services/nytimesapi.service';
+import { IonContent } from '@ionic/angular';
 
 import { ResponseListAll, List } from '../interfaces/interfacesBookAll';
 
@@ -10,6 +11,8 @@ import { ResponseListAll, List } from '../interfaces/interfacesBookAll';
 })
 export class Tab1Page {
 
+  @ViewChild(IonContent) content: IonContent;
+
   lists: List[] = [];
   constructor(private nytimesapiService: NytimesapiService) {
     this.nytimesapiService.getBooks()
@@ -19,12 +22,9 @@ export class Tab1Page {
     });
   }
 
-  getContent() {
-    return document.querySelector('ion-content');
-  }
 
   scrollToTop() {
-    this.getContent().scrollToTop(500);
+    this.content.scrollToTop(500);
   }
 
 }

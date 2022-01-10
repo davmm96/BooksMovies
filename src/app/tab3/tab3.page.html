@@ -7,9 +7,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Favorites List</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-segment scrollable
+                  mode="md"
+                  color="dark"
+                  swipe-gesture
+                  (ionChange)="cambioTipo($event)">
+      <ion-segment-button value="books">
+        Books
+      </ion-segment-button>
+      <ion-segment-button value="movies">
+        Movies
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  
+  <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'"
+    [books] = "favoritesService.favBooks"></app-books>
+
+  <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'"
+      [movies] = "favoritesService.favMovies"></app-movies>
 </ion-content>

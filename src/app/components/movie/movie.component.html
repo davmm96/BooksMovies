@@ -2,6 +2,11 @@
   <ion-card-header>
     <ion-card-title>{{movie.display_title}}</ion-card-title>
     <ion-card-subtitle>Reviewer: <i>{{movie.byline}}</i></ion-card-subtitle>
+    <div class="mostrarMas">
+      <ion-button fill="clear" (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </div>
   </ion-card-header>
   <img *ngIf="movie.multimedia.src" [src]="movie.multimedia.src" alt="">
   <ion-card-content>
