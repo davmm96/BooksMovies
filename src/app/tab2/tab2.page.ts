@@ -45,4 +45,12 @@ export class Tab2Page implements OnInit{
     this.loadFilms(event);
   }
 
+  getContent() {
+    return document.querySelector('ion-content');
+  }
+
+  scrollToTop() {
+    this.getContent().scrollToTop(500);
+  }
+
 }
