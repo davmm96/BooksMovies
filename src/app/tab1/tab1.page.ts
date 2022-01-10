@@ -19,4 +19,12 @@ export class Tab1Page {
     });
   }
 
+  getContent() {
+    return document.querySelector('ion-content');
+  }
+
+  scrollToTop() {
+    this.getContent().scrollToTop(500);
+  }
+
 }

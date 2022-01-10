@@ -1,3 +1,9 @@
-<p>
-  book works!
-</p>
+<ion-card-header color="light">
+  <ion-card-title>{{book.title}} - {{book.author}}</ion-card-title>
+  <ion-card-subtitle><i>{{book.publisher}}</i></ion-card-subtitle>
+</ion-card-header>
+<img *ngIf="book.book_image" [src]="book.book_image" alt="">
+<ion-card-content>
+  <p>{{book.description}}</p>
+  <ion-button fill="outline" ion-button color="warning" [href]="book.amazon_product_url" small><ion-icon name="logo-amazon"></ion-icon></ion-button>
+</ion-card-content>

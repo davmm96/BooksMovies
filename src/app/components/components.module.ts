@@ -6,6 +6,8 @@ import { BookComponent } from './book/book.component';
 import { BooksComponent } from './books/books.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
+import { ListsComponent } from './lists/lists.component';
+import { ListComponent } from './list/list.component';
 
 
 
@@ -14,14 +16,17 @@ import { MovieComponent } from './movie/movie.component';
     BookComponent,
     BooksComponent,
     MovieComponent,
-    MoviesComponent
+    MoviesComponent,
+    ListsComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
     IonicModule
   ],
   exports: [
-    MoviesComponent
+    MoviesComponent,
+    ListsComponent
   ]
 })
 export class ComponentsModule { }
