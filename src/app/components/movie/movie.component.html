@@ -1,11 +1,10 @@
 <ion-card>
-  <ion-card-header>
-    <ion-card-title>{{movie.display_title}}</ion-card-title>
-    <ion-card-subtitle>Reviewer: <i>{{movie.byline}}</i></ion-card-subtitle>
-  </ion-card-header>
   <img *ngIf="movie.multimedia.src" [src]="movie.multimedia.src" alt="">
   <ion-card-content>
+    <ion-card-title>{{movie.display_title}}</ion-card-title>
     <p>{{movie.headline}}</p>
+    <br>
+    <ion-card-subtitle>Reviewed by: {{movie.byline}}</ion-card-subtitle>
   </ion-card-content>
   <ion-card-content>
     <ion-grid fixed>
