@@ -26,10 +26,9 @@ export class MovieComponent implements OnInit {
     if(this.isFavorite)
     {
       guardarBorrarFavorito = {
-        text: 'Eliminar de favoritos',
+        text: 'Remove from favoritos',
           icon: 'trash',
           handler: () => {
-            console.log('Eliminado de favoritos');
             this.favoritesService.removeFavMovie(this.movie);
           }
       }
@@ -37,21 +36,19 @@ export class MovieComponent implements OnInit {
     else
     {
       guardarBorrarFavorito = {
-        text: 'Añadir a favoritos',
-          icon: 'star',
+        text: 'Add to favorites',
+          icon: 'heart',
           handler: () => {
-            console.log('Añadir a favoritos');
             this.favoritesService.addFavMovie(this.movie);
           }
       }
     }
     const actionSheet = await this.actionSheetController.create({
       buttons: [guardarBorrarFavorito, {
-        text: 'Cancelar',
+        text: 'Cancel',
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
         }
       }]
     });

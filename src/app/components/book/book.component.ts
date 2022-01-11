@@ -26,10 +26,9 @@ export class BookComponent implements OnInit {
     if(this.isFavorite)
     {
       guardarBorrarFavorito = {
-        text: 'Eliminar de favoritos',
+        text: 'Remove from favorites',
           icon: 'trash',
           handler: () => {
-            console.log('Eliminado de favoritos');
             this.favoritesService.removeFavBook(this.book);
           }
       }
@@ -37,10 +36,9 @@ export class BookComponent implements OnInit {
     else
     {
       guardarBorrarFavorito = {
-        text: 'Añadir a favoritos',
-          icon: 'star',
+        text: 'Add to favorites',
+          icon: 'heart',
           handler: () => {
-            console.log('Añadir a favoritos');
             this.favoritesService.addFavBook(this.book);
           }
       }
@@ -48,11 +46,10 @@ export class BookComponent implements OnInit {
 
       const actionSheet = await this.actionSheetController.create({
         buttons: [guardarBorrarFavorito, {
-          text: 'Cancelar',
+          text: 'Cancel',
           icon: 'close',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
           }
         }]
       });
