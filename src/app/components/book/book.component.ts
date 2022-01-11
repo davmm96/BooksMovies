@@ -13,7 +13,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 export class BookComponent implements OnInit {
 
   @Input() book: Book;
-  @Input() isFavorite;
+  @Input() isFavorite: boolean;
 
   constructor(private actionSheetController: ActionSheetController, private favoritesService: FavoritesService) { }
 

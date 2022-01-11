@@ -13,7 +13,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 export class MovieComponent implements OnInit {
 
   @Input() movie: Movie;
-  @Input() isFavorite;
+  @Input() isFavorite: boolean;
 
   constructor(private actionSheetController: ActionSheetController, private favoritesService: FavoritesService) { }
 
