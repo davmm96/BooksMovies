@@ -1,4 +1,8 @@
-<ion-item>
-  <h2>{{list.display_name}}</h2>
-</ion-item>
-<app-books [books]="list.books"></app-books>
+<ion-accordion [value]="list.display_name">
+  <ion-item slot="header">
+    <ion-label>{{list.display_name}}</ion-label>
+  </ion-item>
+  <ion-list slot="content">
+    <app-books [books]="list.books"></app-books>
+  </ion-list>
+</ion-accordion>

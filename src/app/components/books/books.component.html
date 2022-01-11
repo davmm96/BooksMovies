@@ -1,7 +1,7 @@
 <ion-grid fixed>
   <ion-row>
-    <ion-col size="12" size-xl="2" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let book of books">
-      <app-book [book]="book" [isFavorite]="isFavorite"></app-book>
+    <ion-col size="12" size-lg="6" size-md="6" size-sm="12" size-xs="12" *ngFor="let book of books">
+      <app-book  [book]="book" [isFavorite]="isFavorite"></app-book>
     </ion-col>
   </ion-row>
 </ion-grid>

@@ -10,8 +10,8 @@ export class BooksComponent implements OnInit {
 
   @Input() books: Book[] = [];
   @Input() isFavorite = false;
-  
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {}
 
