@@ -5,6 +5,8 @@ import { ActionSheetController } from '@ionic/angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { AlertController } from '@ionic/angular';
+
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
@@ -21,7 +23,8 @@ export class MovieComponent implements OnInit {
   constructor(private actionSheetController: ActionSheetController, 
     private favoritesService: FavoritesService, 
     private socialSharing: SocialSharing,
-    private iab: InAppBrowser) { }
+    private iab: InAppBrowser,
+    private alert: AlertController) { }
 
   ngOnInit() {}
 
@@ -29,10 +32,36 @@ export class MovieComponent implements OnInit {
     const browser = this.iab.create(this.movie.link.url,'_blank');
   }
 
+  alerta() {
+    this.alert.create({
+      header: 'Remove favorite',
+      subHeader: '',
+      message: 'Are you sure you want to delete this movie from favorites?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Delete',
+          cssClass: 'red_alert',
+          handler: () => {
+            this.removeFavorite();
+          }
+        }
+      ]
+    }).then(res => {
+
+      res.present();
+
+    });
+
+  }
+
   async mostrarMenu()
   {
       const actionSheet = await this.actionSheetController.create({
-        header: 'Share',
         buttons: [{
             text: 'Twitter',
             icon: 'logo-twitter',
@@ -56,7 +85,7 @@ export class MovieComponent implements OnInit {
         },
         {
           text: 'Cancel',
-          icon: 'close',
+          icon: '',
           role: 'cancel',
           handler: () => {
           }
