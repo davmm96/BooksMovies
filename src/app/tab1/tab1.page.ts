@@ -17,11 +17,9 @@ export class Tab1Page {
   constructor(private nytimesapiService: NytimesapiService) {
     this.nytimesapiService.getBooks()
     .subscribe((data: ResponseListAll) => {
-      console.log(data);
       this.lists = data["results"].lists;
     });
   }
-
 
   scrollToTop() {
     this.content.scrollToTop(500);

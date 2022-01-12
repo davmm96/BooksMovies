@@ -10,7 +10,7 @@ import { IonSegment } from '@ionic/angular';
 export class Tab3Page {
 
   @ViewChild(IonSegment, {static: true}) segment: IonSegment;
-  type = '';
+  type: string = '';
 
   constructor(public favoritesService: FavoritesService) {}
 
@@ -20,9 +20,8 @@ export class Tab3Page {
     this.type = 'books';
   }
 
-  cambioTipo(event)
+  changeType(event)
   {
-    this.type=event.detail.value;
+    this.type = event.detail.value;
   }
-
 }

@@ -5,19 +5,18 @@
     <p>{{movie.headline}}</p>
     <br>
     <ion-card-subtitle>Reviewed by: {{movie.byline}}</ion-card-subtitle>
-  </ion-card-content>
-  <ion-card-content>
+    <br>
     <ion-grid fixed>
       <ion-row>
         <ion-col size="3" offset="1">
-          <ion-button ion-button color="dark" (click)="abrirReview()" target="_blank" medium><ion-icon name="newspaper"></ion-icon></ion-button>
+          <ion-button ion-button color="dark" (click)="openReview()" target="_blank" medium><ion-icon name="newspaper"></ion-icon></ion-button>
         </ion-col>
         <ion-col size="3" offset="1">
           <ion-button *ngIf="!isFavorite" ion-button color="danger" (click)="addFavorite()" small><ion-icon name="heart"></ion-icon></ion-button>
-          <ion-button *ngIf="isFavorite" ion-button color="danger" (click)="alerta()"><ion-icon name="trash"></ion-icon></ion-button>
+          <ion-button *ngIf="isFavorite" ion-button color="danger" (click)="showAlert()"><ion-icon name="trash"></ion-icon></ion-button>
         </ion-col>
         <ion-col size="3" offset="1">
-          <ion-button ion-button color="primary" (click)="mostrarMenu()" small><ion-icon name="share-social"></ion-icon></ion-button>
+          <ion-button ion-button color="primary" (click)="showSocial()" small><ion-icon name="share-social"></ion-icon></ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

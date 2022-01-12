@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import{ ResponseListAll } from '../interfaces/interfacesBookAll';
+import { ResponseMovies } from '../interfaces/interfacesMovies';
 
 const apiKey = environment.apiKey;
 const apiUrl = environment.apiUrl;
@@ -24,6 +25,6 @@ export class NytimesapiService {
   getFilms()
   {
     this.offset+=20;
-    return this.http.get(apiUrl+`svc/movies/v2/reviews/picks.json?offset=${this.offset}&api-key=`+apiKey);
+    return this.http.get<ResponseMovies>(apiUrl+`svc/movies/v2/reviews/picks.json?offset=${this.offset}&api-key=`+apiKey);
   }
 }

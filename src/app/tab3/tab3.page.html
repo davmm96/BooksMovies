@@ -1,35 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Favorites
-    </ion-title>
+    <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-toolbar>
-    <ion-segment scrollable
-                  mode="ios"
-                  color="dark"
-                  swipe-gesture
-                  (ionChange)="cambioTipo($event)">
-      <ion-segment-button value="books">
-        Books
-      </ion-segment-button>
-      <ion-segment-button value="movies">
-        Movies
-      </ion-segment-button>
+    <ion-segment scrollable mode="ios" color="dark" (ionChange) = "changeType($event)">
+      <ion-segment-button value="books">Books</ion-segment-button>
+      <ion-segment-button value="movies">Movies</ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 
   <app-explore-container message="No books added yet" url="tabs/tab1" *ngIf="favoritesService.favBooks.length === 0 && type === 'books'"></app-explore-container>
   <app-explore-container message="No movies added yet" url="tabs/tab2" *ngIf="favoritesService.favMovies.length === 0 && type === 'movies'"></app-explore-container>
   
-  <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'"
-    [books] = "favoritesService.favBooks"
-    [isFavorite]="true"></app-books>
-
-  <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'"
-      [movies] = "favoritesService.favMovies"
-      [isFavorite]="true"></app-movies>
+  <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'" [books] = "favoritesService.favBooks" [isFavorite]="true"></app-books>
+  <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'" movies] = "favoritesService.favMovies" [isFavorite]="true"></app-movies>
 </ion-content>

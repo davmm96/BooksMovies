@@ -14,18 +14,16 @@ export class Tab2Page implements OnInit{
   @ViewChild(IonContent) content: IonContent;
   movies: Movie[] = [];
 
-  constructor(private nytimesapiService: NytimesapiService) {
-    
-  }
+  constructor(private nytimesapiService: NytimesapiService) {}
 
-  ngOnInit() {
+  ngOnInit() 
+  {
       this.loadFilms();
   }
 
-  loadFilms( event?){
+  loadFilms(event?){
     this.nytimesapiService.getFilms()
     .subscribe((data: ResponseMovies) => {
-      console.log(data);
 
       if(data["results"].length === 0)
       {
@@ -33,6 +31,7 @@ export class Tab2Page implements OnInit{
         event.target.complete();
         return;
       }
+
       this.movies.push(...data["results"]);
 
       if(event)

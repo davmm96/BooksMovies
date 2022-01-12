@@ -2,13 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/interfaces/interfacesBookAll';
 
 import { ActionSheetController } from '@ionic/angular';
-
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-
 import { AlertController } from '@ionic/angular';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 import { FavoritesService } from 'src/app/services/favorites.service';
-import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-book',
@@ -23,16 +21,16 @@ export class BookComponent implements OnInit {
   constructor(private actionSheetController: ActionSheetController, 
     private favoritesService: FavoritesService, 
     private socialSharing: SocialSharing,
-    private iab: InAppBrowser,
+    private inAppBrowser: InAppBrowser,
     public alert: AlertController) { }
 
   ngOnInit() {}
 
-  abrirAmazon(){
-    const browser = this.iab.create(this.book.amazon_product_url,'_blank');
+  openAmazon(){
+    const browser = this.inAppBrowser.create(this.book.amazon_product_url,'_blank');
   }
 
-  alerta() {
+  showAlert() {
     this.alert.create({
       header: 'Remove favorite',
       subHeader: '',
@@ -56,10 +54,9 @@ export class BookComponent implements OnInit {
       res.present();
 
     });
-
   }
 
-  async mostrarMenu()
+  async showSocial()
   {
       const actionSheet = await this.actionSheetController.create({
         buttons: [{
@@ -107,23 +104,16 @@ export class BookComponent implements OnInit {
 
     shareTwitter()
     {
-      this.socialSharing.shareViaTwitter(this.book.title, this.book.book_image).then(() => {
-        // Success!
-      })
+      this.socialSharing.shareViaTwitter(this.book.title, this.book.book_image);
     }
 
     shareFacebook()
     {
-      this.socialSharing.shareViaFacebookWithPasteMessageHint(this.book.title, this.book.book_image).then(() => {
-        // Success!
-      })
+      this.socialSharing.shareViaFacebookWithPasteMessageHint(this.book.title, this.book.book_image);
     }
 
     shareInstagram()
     {
-      this.socialSharing.shareViaInstagram(this.book.title, this.book.book_image).then(() => {
-        // Success!
-      })
+      this.socialSharing.shareViaInstagram(this.book.title, this.book.book_image);
     }
-
 }
