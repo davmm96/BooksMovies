@@ -15,5 +15,5 @@
   <app-explore-container message="No movies added yet" url="tabs/tab2" *ngIf="favoritesService.favMovies.length === 0 && type === 'movies'"></app-explore-container>
   
   <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'" [books] = "favoritesService.favBooks" [isFavorite]="true"></app-books>
-  <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'" movies] = "favoritesService.favMovies" [isFavorite]="true"></app-movies>
+  <app-movies *ngIf="favoritesService.favMovies.length > 0 && type === 'movies'" [movies] = "favoritesService.favMovies" [isFavorite]="true"></app-movies>
 </ion-content>
