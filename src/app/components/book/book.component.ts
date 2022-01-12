@@ -3,6 +3,8 @@ import { Book } from 'src/app/interfaces/interfacesBookAll';
 
 import { ActionSheetController } from '@ionic/angular';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
@@ -16,9 +18,16 @@ export class BookComponent implements OnInit {
   @Input() book: Book;
   @Input() isFavorite: boolean;
 
-  constructor(private actionSheetController: ActionSheetController, private favoritesService: FavoritesService, private socialSharing: SocialSharing) { }
+  constructor(private actionSheetController: ActionSheetController, 
+    private favoritesService: FavoritesService, 
+    private socialSharing: SocialSharing,
+    private iab: InAppBrowser) { }
 
   ngOnInit() {}
+
+  abrirAmazon(){
+    const browser = this.iab.create(this.book.amazon_product_url,'_blank');
+  }
 
   async mostrarMenu()
   {

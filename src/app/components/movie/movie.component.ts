@@ -3,6 +3,8 @@ import { Movie } from 'src/app/interfaces/interfacesMovies';
 
 import { ActionSheetController } from '@ionic/angular';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
@@ -16,9 +18,16 @@ export class MovieComponent implements OnInit {
   @Input() movie: Movie;
   @Input() isFavorite: boolean;
 
-  constructor(private actionSheetController: ActionSheetController, private favoritesService: FavoritesService, private socialSharing: SocialSharing) { }
+  constructor(private actionSheetController: ActionSheetController, 
+    private favoritesService: FavoritesService, 
+    private socialSharing: SocialSharing,
+    private iab: InAppBrowser) { }
 
   ngOnInit() {}
+
+  abrirReview(){
+    const browser = this.iab.create(this.movie.link.url,'_blank');
+  }
 
   async mostrarMenu()
   {
