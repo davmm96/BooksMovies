@@ -80,7 +80,7 @@ export class FavoritesService {
   {
     const toast = await this.toastController.create({
       message: message,
-      duration: 500
+      duration: 1200
     });
     toast.present();
   }

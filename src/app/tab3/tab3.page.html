@@ -22,8 +22,8 @@
     </ion-segment>
   </ion-toolbar>
 
-  <p *ngIf="favoritesService.favBooks.length === 0 && type === 'books'">No books added to favorites</p>
-  <p *ngIf="favoritesService.favMovies.length === 0 && type === 'movies'">No movies added to favorites</p>
+  <app-explore-container message="No books added yet" url="tabs/tab1" *ngIf="favoritesService.favBooks.length === 0 && type === 'books'"></app-explore-container>
+  <app-explore-container message="No movies added yet" url="tabs/tab2" *ngIf="favoritesService.favMovies.length === 0 && type === 'movies'"></app-explore-container>
   
   <app-books *ngIf="favoritesService.favBooks.length > 0 && type === 'books'"
     [books] = "favoritesService.favBooks"
