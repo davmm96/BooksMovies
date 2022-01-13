@@ -32,9 +32,9 @@ export class BookComponent implements OnInit {
 
   showAlert() {
     this.alert.create({
-      header: 'Remove favorite',
+      header: 'Delete favorite',
       subHeader: '',
-      message: 'Are you sure you want to delete this book from favorites?',
+      message: 'Are you sure you want to delete this book from your favorites?',
       buttons: [
         {
           text: 'Cancel',

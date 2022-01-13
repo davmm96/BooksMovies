@@ -8,7 +8,7 @@
   <app-movies [movies]="movies"></app-movies>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="light" (click)="scrollToTop()">
-      <ion-icon name="arrow-up"></ion-icon>
+      <ion-icon name="chevron-up"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">

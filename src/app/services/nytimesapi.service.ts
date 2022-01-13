@@ -14,7 +14,7 @@ const apiUrl = environment.apiUrl;
 })
 export class NytimesapiService {
 
-  offset = -20;
+  offsetBooks = -20;
   constructor(private http: HttpClient) { }
 
   getBooks()
@@ -24,7 +24,7 @@ export class NytimesapiService {
   
   getFilms()
   {
-    this.offset+=20;
-    return this.http.get<ResponseMovies>(apiUrl+`svc/movies/v2/reviews/picks.json?offset=${this.offset}&api-key=`+apiKey);
+    this.offsetBooks+=20;
+    return this.http.get<ResponseMovies>(apiUrl+`svc/movies/v2/reviews/picks.json?offset=${this.offsetBooks}&api-key=`+apiKey);
   }
 }

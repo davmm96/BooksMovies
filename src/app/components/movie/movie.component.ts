@@ -32,9 +32,9 @@ export class MovieComponent implements OnInit {
 
   showAlert() {
     this.alert.create({
-      header: 'Remove favorite',
+      header: 'Delete favorite',
       subHeader: '',
-      message: 'Are you sure you want to delete this movie from favorites?',
+      message: 'Are you sure you want to delete this movie from your favorites?',
       buttons: [
         {
           text: 'Cancel',

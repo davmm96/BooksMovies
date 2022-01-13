@@ -10,6 +10,7 @@ export class FavoritesService {
 
   favBooks: Book[] = [];
   favMovies: Movie[] = [];
+
   constructor(private toastController: ToastController) { 
     this.loadFavs();
   }
@@ -32,12 +33,13 @@ export class FavoritesService {
 
   addFavBook(book: Book)
   {
-    const exist = this.favBooks.find( b => b.primary_isbn10 === book.primary_isbn10);
+    const isAdded = this.favBooks.find( b => b.primary_isbn10 === book.primary_isbn10);
     
-    if(!exist)
+    if(!isAdded)
     {
       this.favBooks.unshift(book);
       localStorage.setItem('favBooks', JSON.stringify(this.favBooks));
+      
       this.showToast('Book added to favorites');
     }
     else
@@ -48,12 +50,13 @@ export class FavoritesService {
   
   addFavMovie(movie: Movie)
   {
-    const exist = this.favMovies.find(m => m.display_title === movie.display_title);
+    const isAdded = this.favMovies.find(m => m.display_title === movie.display_title);
     
-    if(!exist)
+    if(!isAdded)
     {
       this.favMovies.unshift(movie);
       localStorage.setItem('favMovies', JSON.stringify(this.favMovies));
+
       this.showToast('Movie added to favorites');
     }
     else
@@ -66,6 +69,7 @@ export class FavoritesService {
   {
     this.favMovies = this.favMovies.filter(m => m.display_title !== movie.display_title);
     localStorage.setItem('favMovies', JSON.stringify(this.favMovies));
+
     this.showToast('Movie removed from favorites');
   }
   

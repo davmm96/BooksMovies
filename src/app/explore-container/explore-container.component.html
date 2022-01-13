@@ -1,4 +1,6 @@
 <div id="container">
   <strong>{{ message }}</strong>
-  <p>Start <a [href]="url">here</a></p>
+  <p>
+    <ion-button size="small" fill="outline" color="dark" (click)="redirect(url)">Start here</ion-button>
+  </p>
 </div>
